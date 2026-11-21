@@ -23,4 +23,4 @@ jobs:
       context: .
       image_owner: crvouga
       image_prefix: chrisvouga
-      infra_github_repo: crvouga/workspace
+      infra_github_repo: crvouga-organization/personal

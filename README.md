@@ -2,7 +2,7 @@
 
 A browser-first multiplayer arena shooter where players build the arenas and rules. Three vertical station arenas, six visible weapons, Box3D capsule physics, lights and shadows, positional sound, and a browser sandbox. Rust runs the authoritative simulation and Bevy renders the WASM client.
 
-> This repository does not own production infrastructure or hosting. It publishes a deployable container image; `crvouga/workspace` owns deployment.
+> This repository does not own production infrastructure or hosting. It publishes a deployable container image; `crvouga-organization/personal` owns deployment.
 
 ## Run locally
 
@@ -78,7 +78,7 @@ FFA, Team Deathmatch, CTF and KOTH use this same evaluator to award points. The 
 TEST_DATABASE_URL="$DATABASE_URL" ./scripts/schema-check.sh
 ```
 
-Shared database allocations, credentials and production schema application belong to `crvouga/workspace`. Its general guide recommends migrations; the explicit Pillbox requirement takes precedence here. Do not run schema commands against shared infrastructure until an isolated Pillbox allocation and declarative application process are approved there.
+Shared database allocations, credentials and production schema application belong to `crvouga-organization/personal`. Its general guide recommends migrations; the explicit Pillbox requirement takes precedence here. Do not run schema commands against shared infrastructure until an isolated Pillbox allocation and declarative application process are approved there.
 
 ## Verification
 
@@ -120,7 +120,7 @@ Unauthenticated `/health` is process liveness and never queries the DB or third 
 
 ## Publishing and external ownership
 
-[Current shared integration contract](https://github.com/crvouga-organization/personal/blob/main/llms.txt) was consulted for this implementation. `.github/workflows/publish.yml` waits for application validation and calls `crvouga/workspace/.github/workflows/ci.yml@main` with `service_id: pillbox`. The shared workflow builds/publishes `ghcr.io/crvouga/chrisvouga-pillbox:<commit-sha>` (and `latest`) and sends the prescribed `deploy-service` dispatch. Pillbox does not call Railway, own hosting resources, or apply production schema.
+[Current shared integration contract](https://github.com/crvouga-organization/personal/blob/main/llms.txt) was consulted for this implementation. `.github/workflows/publish.yml` waits for application validation and calls `crvouga-organization/personal/.github/workflows/ci.yml@main` with `service_id: pillbox`. The shared workflow builds/publishes `ghcr.io/crvouga/chrisvouga-pillbox:<commit-sha>` (and `latest`) and sends the prescribed `deploy-service` dispatch. Pillbox does not call Railway, own hosting resources, or apply production schema.
 
 External prerequisites remain: approved service inventory entry for `pillbox`, an isolated app database allocation and `DATABASE_URL`, agreed declarative schema application, `PUBLIC_ORIGIN`, and infrastructure-managed `DEPLOY_DISPATCH_TOKEN`. No production deployment, external infrastructure mutation, or manual registry push is part of this implementation. See `docs/infrastructure-handoff.md`.
 
