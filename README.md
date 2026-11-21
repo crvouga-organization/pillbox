@@ -120,7 +120,7 @@ Unauthenticated `/health` is process liveness and never queries the DB or third 
 
 ## Publishing and external ownership
 
-[Current shared integration contract](https://github.com/crvouga/workspace/blob/main/llms.txt) was consulted for this implementation. `.github/workflows/publish.yml` waits for application validation and calls `crvouga/workspace/.github/workflows/ci.yml@main` with `service_id: pillbox`. The shared workflow builds/publishes `ghcr.io/crvouga/chrisvouga-pillbox:<commit-sha>` (and `latest`) and sends the prescribed `deploy-service` dispatch. Pillbox does not call Railway, own hosting resources, or apply production schema.
+[Current shared integration contract](https://github.com/crvouga-organization/personal/blob/main/llms.txt) was consulted for this implementation. `.github/workflows/publish.yml` waits for application validation and calls `crvouga/workspace/.github/workflows/ci.yml@main` with `service_id: pillbox`. The shared workflow builds/publishes `ghcr.io/crvouga/chrisvouga-pillbox:<commit-sha>` (and `latest`) and sends the prescribed `deploy-service` dispatch. Pillbox does not call Railway, own hosting resources, or apply production schema.
 
 External prerequisites remain: approved service inventory entry for `pillbox`, an isolated app database allocation and `DATABASE_URL`, agreed declarative schema application, `PUBLIC_ORIGIN`, and infrastructure-managed `DEPLOY_DISPATCH_TOKEN`. No production deployment, external infrastructure mutation, or manual registry push is part of this implementation. See `docs/infrastructure-handoff.md`.
 

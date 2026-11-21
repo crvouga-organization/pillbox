@@ -156,7 +156,7 @@ All infrastructure, hosting, deployment destinations, networking, DNS, secrets, 
 
 Integration guide:
 
-`https://github.com/crvouga/workspace/blob/main/llms.txt`
+`https://github.com/crvouga-organization/personal/blob/main/llms.txt`
 
 Read that guide before implementing deployment integration.
 
