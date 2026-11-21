@@ -19,7 +19,7 @@ for _ in {1..60}; do
   sleep 1
 done
 curl -fsS http://127.0.0.1:18081/health
-curl -fsS http://127.0.0.1:18081/ | rg 'PILLBOX' >/dev/null
+curl -fsS http://127.0.0.1:18081/ | grep 'PILLBOX' >/dev/null
 curl -fsS http://127.0.0.1:18081/pkg/webgpu/pillbox_client_bg.wasm -o /dev/null
 curl -fsS http://127.0.0.1:18081/pkg/webgl/pillbox_client_bg.wasm -o /dev/null
 curl -fsS http://127.0.0.1:18081/assets/models/weapons/blaster-e.glb -o /dev/null
