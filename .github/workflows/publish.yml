@@ -17,14 +17,14 @@ jobs:
     uses: ./.github/workflows/check.yml
   pillbox:
     needs: validate
-    uses: crvouga-organization/personal/.github/workflows/ci.yml@main
+    uses: crvouga/personal/.github/workflows/ci.yml@main
     secrets:
       CALLER_GITHUB_TOKEN: ${{ github.token }}
     with:
       service_id: pillbox
       dockerfile: ./Dockerfile
       context: .
-      image_owner: crvouga-organization
+      image_owner: crvouga
       image_prefix: chrisvouga
-      infra_github_repo: crvouga-organization/personal
+      infra_github_repo: crvouga/personal
       notify_deploy: false

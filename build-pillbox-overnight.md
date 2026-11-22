@@ -152,17 +152,17 @@ This repository does **not own infrastructure**.
 
 All infrastructure, hosting, deployment destinations, networking, DNS, secrets, databases and cloud-provider configuration are owned externally by:
 
-`crvouga-organization/personal`
+`crvouga/personal`
 
 Integration guide:
 
-`https://github.com/crvouga-organization/personal/blob/main/llms.txt`
+`https://github.com/crvouga/personal/blob/main/llms.txt`
 
 Read that guide before implementing deployment integration.
 
 Treat it as the authoritative contract.
 
-If this repository's assumptions conflict with the current `crvouga-organization/personal` infrastructure definition, the infrastructure repository wins.
+If this repository's assumptions conflict with the current `crvouga/personal` infrastructure definition, the infrastructure repository wins.
 
 Do not duplicate infrastructure definitions here.
 
@@ -180,7 +180,7 @@ This repository owns only:
 - automated tests
 - declarative database schema
 - CI needed to validate/build the project
-- image publication integration required by `crvouga-organization/personal`
+- image publication integration required by `crvouga/personal`
 
 This repository does **not** own:
 
@@ -228,7 +228,7 @@ GHCR
        |
        | deployment notification
        v
-crvouga-organization/personal
+crvouga/personal
        |
        v
 personal infrastructure chooses deployment
@@ -242,7 +242,7 @@ It should run anywhere satisfying its runtime contract.
 
 # Shared infrastructure contract
 
-Follow the current `crvouga-organization/personal/llms.txt` instructions.
+Follow the current `crvouga/personal/llms.txt` instructions.
 
 The current managed-hosting model expects applications to be Dockerized and published as prebuilt GHCR images. The infrastructure repository then owns deployment, including Railway resources and health checking.
 
@@ -481,7 +481,7 @@ atlas schema apply
 
 where applicable.
 
-The exact production schema application mechanism may be owned by `crvouga-organization/personal`.
+The exact production schema application mechanism may be owned by `crvouga/personal`.
 
 Do not assume this application repository owns production schema application unless the external infrastructure contract explicitly says so.
 
@@ -1180,7 +1180,7 @@ At minimum run:
 - container smoke test
 - health endpoint smoke test
 
-Then use the publishing mechanism required by `crvouga-organization/personal`.
+Then use the publishing mechanism required by `crvouga/personal`.
 
 ---
 
@@ -1190,7 +1190,7 @@ The application repository should publish the prebuilt Docker image exactly acco
 
 Do not invent a separate deployment mechanism.
 
-The current infrastructure guide defines a reusable workflow where the application repo builds and pushes the expected GHCR image and dispatches deployment responsibility to `crvouga-organization/personal`.
+The current infrastructure guide defines a reusable workflow where the application repo builds and pushes the expected GHCR image and dispatches deployment responsibility to `crvouga/personal`.
 
 Follow that contract.
 
@@ -1292,14 +1292,14 @@ Update the README with:
 - testing
 - declarative Atlas schema workflow
 - Docker image contract
-- integration boundary with `crvouga-organization/personal`
+- integration boundary with `crvouga/personal`
 - sandbox content model
 - game-mode rules system
 - multiplayer architecture
 
 Clearly state:
 
-> This repository does not own production infrastructure or hosting. It publishes a deployable container image; `crvouga-organization/personal` owns deployment.
+> This repository does not own production infrastructure or hosting. It publishes a deployable container image; `crvouga/personal` owns deployment.
 
 Also document known limitations honestly.
 
@@ -1329,7 +1329,7 @@ Then expand outward.
 Recommended order:
 
 1. Inspect the repository.
-2. Read `crvouga-organization/personal/llms.txt`.
+2. Read `crvouga/personal/llms.txt`.
 3. Understand the existing infrastructure integration contract.
 4. Identify reusable existing application architecture.
 5. Establish shared simulation.
@@ -1429,7 +1429,7 @@ Do not attempt to own DNS, TLS, Vault, Postgres infrastructure or Railway.
 
 This repository publishes an image.
 
-`crvouga-organization/personal` owns deployment.
+`crvouga/personal` owns deployment.
 
 Respect that boundary.
 
@@ -1572,7 +1572,7 @@ Verify:
 
 Search the repository specifically for migration artifacts and remove them.
 
-Search for infrastructure ownership that belongs in `crvouga-organization/personal` and remove it.
+Search for infrastructure ownership that belongs in `crvouga/personal` and remove it.
 
 Repeat the audit after fixes.
 
@@ -1610,7 +1610,7 @@ How to build and run the production image locally.
 
 ## Infrastructure integration
 
-Describe how the image publication hooks into `crvouga-organization/personal`.
+Describe how the image publication hooks into `crvouga/personal`.
 
 Do not claim this repository deploys infrastructure.
 
